@@ -29,6 +29,13 @@
 
 > 🎉 **v3.0.1 공개 (2026년 4월)** — Claude Code 플러그인으로 설치 가능: `/plugin marketplace add sangrokjung/claude-forge` 실행 후 `/plugin install claude-forge`. Anthropic 2026 표준 정렬(Hooks 21+ 이벤트 · Subagent frontmatter v2 · Skills/Commands 하이브리드 정책) + MCP 최소 구성(4개: playwright · context7 · jina-reader · chrome-devtools@0.23.0). 상세: [MIGRATION.md](MIGRATION.md) / [MIGRATION.ko.md](MIGRATION.ko.md), [Release v3.0.1](https://github.com/sangrokjung/claude-forge/releases/tag/v3.0.1).
 
+> 🚀 **한 줄 설치** (전체 설치, 권장):
+> ```bash
+> curl -fsSL https://raw.githubusercontent.com/sangrokjung/claude-forge/main/install.sh | bash
+> ```
+> 또는 Claude Code 세션 안에서: `/plugin marketplace add sangrokjung/claude-forge` → `/plugin install claude-forge` (lightweight, plugin-only).
+> 상세: [`INSTALL.md`](INSTALL.md).
+
 ---
 
 ## Claude Forge란?

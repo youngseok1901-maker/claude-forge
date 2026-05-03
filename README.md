@@ -30,6 +30,13 @@
 
 > 🎉 **v3.0.1 released (April 2026)** — installable as a Claude Code plugin via `/plugin marketplace add sangrokjung/claude-forge` then `/plugin install claude-forge`. Anthropic 2026 standard alignment (Hooks 21+ events · Subagent frontmatter v2 · Skills/Commands hybrid policy) plus a 4-server MCP minimum (playwright · context7 · jina-reader · chrome-devtools@0.23.0). See [MIGRATION.md](MIGRATION.md) / [MIGRATION.ko.md](MIGRATION.ko.md) and [Release v3.0.1](https://github.com/sangrokjung/claude-forge/releases/tag/v3.0.1).
 
+> 🚀 **Install in one line** (full install, recommended):
+> ```bash
+> curl -fsSL https://raw.githubusercontent.com/sangrokjung/claude-forge/main/install.sh | bash
+> ```
+> Or, inside an existing Claude Code session: `/plugin marketplace add sangrokjung/claude-forge` then `/plugin install claude-forge` (lightweight, plugin-only).
+> Full details: [`INSTALL.md`](INSTALL.md).
+
 ---
 
 ## What is Claude Forge?
