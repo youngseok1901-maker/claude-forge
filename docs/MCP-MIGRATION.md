@@ -127,4 +127,4 @@ A: No. `plugin.json` does not list MCP servers — they're project-scoped in `mc
 - Auto Memory: https://docs.anthropic.com/en/docs/claude-code/memory
 - Playwright MCP: https://github.com/microsoft/playwright-mcp
 - Context7: https://upstash.com/blog/context7-mcp
-- Jina Reader: https://github.com/jina-ai/jina-mcp-tools
+- Jina Reader: https://github.com/PsychArch/jina-mcp-tools

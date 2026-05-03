@@ -90,6 +90,6 @@ Follow-up task: pin `playwright` and `context7` in a separate ADR once upstream 
 - [Claude Code MCP docs](https://docs.anthropic.com/en/docs/claude-code/mcp) (Tier 0, 2026-04-23)
 - [Claude Code Auto Memory](https://code.claude.com/docs/en/memory) (Tier 0, 2026-04-23, v2.1.59+)
 - [MCP Security Best Practices](https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices) (Tier 0)
-- [ChromeDevTools/chrome-devtools-mcp v0.23.0](https://github.com/ChromeDevTools/chrome-devtools-mcp/releases/tag/v0.23.0) (Tier 0, 2026-04-22)
-- [claude-forge MIGRATION.md §MCP default cut](https://github.com/sangrokjung/claude-forge/blob/feat/v3.0/MIGRATION.md)
+- [ChromeDevTools/chrome-devtools-mcp v0.23.0](https://github.com/ChromeDevTools/chrome-devtools-mcp/releases/tag/chrome-devtools-mcp-v0.23.0) (Tier 0, 2026-04-22)
+- [claude-forge MIGRATION.md §MCP default cut](https://github.com/sangrokjung/claude-forge/blob/main/MIGRATION.md)
 - Review dossier: `~/.claude/plans/scalable-waddling-sphinx.md` (`## 독립 회의적 리뷰 결과` section)

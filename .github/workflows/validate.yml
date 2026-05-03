@@ -296,7 +296,8 @@ jobs:
             INSTALL.md
             README.md
             README.ko.md
-            'docs/**/*.md'
+            'docs/*.md'
+            'docs/adr/**/*.md'
             '.github/ISSUE_TEMPLATE/*.md'
             '.github/ISSUE_TEMPLATE/*.yml'
         env:
