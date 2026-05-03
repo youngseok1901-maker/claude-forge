@@ -100,7 +100,7 @@ gh pr create \
 ```
 
 ## PR URL
-(empty — fill after maintainer submits)
+https://github.com/ComposioHQ/awesome-claude-plugins/pull/210
 
 ## Status
 DRAFT — awaiting maintainer review and submission. **External link strategy chosen** (matches existing convention in `Developer Productivity` section).

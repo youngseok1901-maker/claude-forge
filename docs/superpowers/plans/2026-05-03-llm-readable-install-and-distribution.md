@@ -13,7 +13,12 @@ The repo already has two working install paths (`/plugin marketplace add` and `.
 - Markdown for all repo edits
 - WebFetch via `mcp__plugin_playwright_playwright__browser_*` only if needed for portal verification (avoid where possible)
 
-**Status:** APPROVED (2026-05-03 by sangrokjung — `1/1/1`: APPROVED · Subagent-Driven · v3.0.2)
+**Status:** ✅ COMPLETED (2026-05-03)
+- Phase A/C/D/E/F: inline by main session (commits 84f4729, 7d3da7b, 5a05794)
+- Phase B drafts: background worker (commit 3e48ace)
+- Phase B PR submissions: 3/6 OPEN (travisvn #679, rohitg00 #362, composiohq #210), 1 HOLD (hesreallyhim — upstream mid-rewrite), 2 deferred (voltagent + ccplugins — Strategy A 30-min each)
+- v3.0.2 release published: https://github.com/sangrokjung/claude-forge/releases/tag/v3.0.2
+- All 5 acceptance criteria MET
 
 **Acceptance Criteria (whole plan):**
 1. A new Claude Code session given just `https://github.com/sangrokjung/claude-forge` and the prompt "install this" must produce **exactly one** chosen install command in its first response, with **zero clarifying questions**.

@@ -110,7 +110,7 @@ gh pr create \
 ```
 
 ## PR URL
-(empty — fill after maintainer submits)
+https://github.com/travisvn/awesome-claude-skills/pull/679
 
 ## Status
 DRAFT — awaiting maintainer review and submission. Format matches existing `Collections & Libraries` entries (obra/superpowers, obra/superpowers-lab).

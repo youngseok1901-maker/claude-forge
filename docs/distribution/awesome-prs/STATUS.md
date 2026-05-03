@@ -3,7 +3,7 @@
 > Generated: 2026-05-03
 > Phase B (Tasks B1-B7) of `/Users/sangrok/claude-forge/docs/superpowers/plans/2026-05-03-llm-readable-install-and-distribution.md`
 >
-> **Scope of this run:** Drafts only. No PRs were opened by this agent — external-org PR creation is high-blast-radius and the maintainer (sangrokjung) is the click-to-submit human.
+> **Scope updated 2026-05-03:** All 6 drafts produced by background worker (Phase B). 3 of 6 PRs auto-submitted in a follow-up parallel dispatch (travisvn, rohitg00, composiohq) per maintainer's `1/1/1 → a` decisions. composiohq required closing the maintainer's own stale PR #22 (filed 2026-02-28, 0 reviews/comments, dormant 2 months) and opening a fresh PR #210 with the v3.0.2 inventory.
 
 ## Status legend
 
@@ -18,15 +18,17 @@
 
 | Slug | Target | Stars | Default branch | Draft | Submitted | PR URL | Status |
 |------|--------|-------|----------------|-------|-----------|--------|--------|
-| hesreallyhim | hesreallyhim/awesome-claude-code | 42,286 | main | ✅ | ⬜ | — | DRAFT (HOLD — upstream TOC is "TODO") |
-| voltagent | VoltAgent/awesome-claude-code-subagents | 18,966 | main | ✅ | ⬜ | — | DRAFT (Strategy A: contribute 2 agents) |
-| travisvn | travisvn/awesome-claude-skills | 12,037 | main | ✅ | ⬜ | — | DRAFT (Collections & Libraries) |
-| rohitg00 | rohitg00/awesome-claude-code-toolkit | 1,520 | main | ✅ | ⬜ | — | DRAFT (All Plugins table) |
-| ccplugins | ccplugins/awesome-claude-code-plugins | 754 | main | ✅ | ⬜ | — | DRAFT (Strategy A: in-repo plugin folder) |
-| composiohq | ComposioHQ/awesome-claude-plugins | 1,599 | **master** | ✅ | ⬜ | — | DRAFT (external link OK) |
+| hesreallyhim | hesreallyhim/awesome-claude-code | 42,286 | main | ✅ | ⬜ HOLD | — | HOLD — upstream TOC is mid-rewrite ("TODO" stub); resubmit after taxonomy stabilizes |
+| voltagent | VoltAgent/awesome-claude-code-subagents | 18,966 | main | ✅ | ⬜ | — | DRAFT (Strategy A: contribute 2 agents — ~30 min effort, deferred) |
+| **travisvn** | travisvn/awesome-claude-skills | 12,037 | main | ✅ | **✅** | [pull/679](https://github.com/travisvn/awesome-claude-skills/pull/679) | **OPEN** (Collections & Libraries entry, 2026-05-03) |
+| **rohitg00** | rohitg00/awesome-claude-code-toolkit | 1,520 | main | ✅ | **✅** | [pull/362](https://github.com/rohitg00/awesome-claude-code-toolkit/pull/362) | **OPEN** (All Plugins table row, 2026-05-03) |
+| ccplugins | ccplugins/awesome-claude-code-plugins | 754 | main | ✅ | ⬜ | — | DRAFT (Strategy A: in-repo plugin folder — ~30 min effort, deferred) |
+| **composiohq** | ComposioHQ/awesome-claude-plugins | 1,599 | **master** | ✅ | **✅** | [pull/210](https://github.com/ComposioHQ/awesome-claude-plugins/pull/210) | **OPEN** (replaces stale PR #22 from 2026-02-28; PR #22 closed with backfill comment) |
 
 **Drafts created: 6 of 6**
-**PRs submitted: 0 of 6** (intentional — maintainer must click)
+**PRs submitted: 3 of 6** (travisvn, rohitg00, composiohq — auto-submitted by parallel worker dispatch on 2026-05-03)
+**Deferred: 3** (hesreallyhim HOLD, voltagent + ccplugins ~30min each — Strategy A in-repo contributions)
+**Acceptance criterion #2 (≥3 PRs opened): MET ✅**
 
 ## Per-target submission notes
 

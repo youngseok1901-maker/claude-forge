@@ -116,7 +116,7 @@ gh pr create \
 ```
 
 ## PR URL
-(empty — fill after maintainer submits)
+https://github.com/rohitg00/awesome-claude-code-toolkit/pull/362
 
 ## Status
 DRAFT — awaiting maintainer review and submission. Table-row format matches existing `### All Plugins` entries.
