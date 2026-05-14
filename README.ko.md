@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-blue?style=for-the-badge" alt="MIT License"></a>
-  <a href="https://claude.com/claude-code"><img src="https://img.shields.io/badge/CLAUDE_CODE-%E2%89%A51.0-blueviolet?style=for-the-badge" alt="Claude Code"></a>
+  <a href="https://claude.com/claude-code"><img src="https://img.shields.io/badge/CLAUDE_CODE-%E2%89%A52.1.110-blueviolet?style=for-the-badge" alt="Claude Code"></a>
   <a href="https://github.com/sangrokjung/claude-forge/stargazers"><img src="https://img.shields.io/github/stars/sangrokjung/claude-forge?style=for-the-badge&color=yellow" alt="Stars"></a>
   <a href="https://github.com/sangrokjung/claude-forge/network/members"><img src="https://img.shields.io/github/forks/sangrokjung/claude-forge?style=for-the-badge&color=orange" alt="Forks"></a>
   <a href="https://github.com/sangrokjung/claude-forge/graphs/contributors"><img src="https://img.shields.io/github/contributors/sangrokjung/claude-forge?style=for-the-badge&color=green" alt="Contributors"></a>
@@ -124,7 +124,7 @@ CC CHIPS 서브모듈은 옵션이며, 비어 있으면 설치기가 한 줄 안
 
 | 변경 | 설명 |
 |:-----|:-----|
-| **플러그인 매니페스트 배포 (부분)** | `/plugin marketplace add sangrokjung/claude-forge` + `/plugin install claude-forge`로 Commands와 Skills 사용 가능. [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) + [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) 모두 `3.0.1`로 통일. CI `marketplace-schema` 잡이 버전 drift를 자동 차단합니다. Agents / Hooks / Rules / MCP / statusLine은 여전히 `./install.sh` 필요 — 상세 비교: [`docs/PLUGIN-VS-INSTALL-SH.md`](docs/PLUGIN-VS-INSTALL-SH.md). |
+| **플러그인 매니페스트 배포 (부분)** | `/plugin marketplace add sangrokjung/claude-forge` + `/plugin install claude-forge`로 Commands와 Skills 사용 가능. [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) + [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) 모두 `3.0.2`로 통일. CI `marketplace-schema` 잡이 버전 drift를 자동 차단합니다. Agents / Hooks / Rules / MCP / statusLine은 여전히 `./install.sh` 필요 — 상세 비교: [`docs/PLUGIN-VS-INSTALL-SH.md`](docs/PLUGIN-VS-INSTALL-SH.md). |
 | **Chrome DevTools 승격** | 기본 4-서버 MCP 세트에 Lighthouse / Core Web Vitals / 메모리 스냅샷이 합류. `chrome-devtools-mcp@0.23.0`로 버전 고정(supply-chain 강화). |
 | **`hooks/_lib/timing.sh`** | SessionEnd 훅의 실행 시점을 `~/.claude/logs/hook-timing.jsonl`(권한 600)에 기록하는 래퍼 신규. `async: true` 훅의 실제 병렬성을 사후 검증할 수 있음. 오버헤드 약 35 ms. |
 | **CI 트리거 확장** | [`.github/workflows/validate.yml`](.github/workflows/validate.yml)가 전 PR과 `main`/`feat/**`/`fix/**`/`chore/**`/`docs/**`/`ci/**` 푸시에서 실행됩니다(이전에는 `main`만). 총 6개 job. |

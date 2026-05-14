@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-blue?style=for-the-badge" alt="MIT License"></a>
-  <a href="https://claude.com/claude-code"><img src="https://img.shields.io/badge/CLAUDE_CODE-%E2%89%A51.0-blueviolet?style=for-the-badge" alt="Claude Code"></a>
+  <a href="https://claude.com/claude-code"><img src="https://img.shields.io/badge/CLAUDE_CODE-%E2%89%A52.1.110-blueviolet?style=for-the-badge" alt="Claude Code"></a>
   <a href="https://github.com/sangrokjung/claude-forge/stargazers"><img src="https://img.shields.io/github/stars/sangrokjung/claude-forge?style=for-the-badge&color=yellow" alt="Stars"></a>
   <a href="https://github.com/sangrokjung/claude-forge/network/members"><img src="https://img.shields.io/github/forks/sangrokjung/claude-forge?style=for-the-badge&color=orange" alt="Forks"></a>
   <a href="https://github.com/sangrokjung/claude-forge/graphs/contributors"><img src="https://img.shields.io/github/contributors/sangrokjung/claude-forge?style=for-the-badge&color=green" alt="Contributors"></a>
@@ -128,7 +128,7 @@ servers come from `.mcp.json` / `mcp-servers.json`, which only Option 2 wires up
 
 | Change | Description |
 |:-------|:------------|
-| **Plugin Manifest shipped (partial)** | `/plugin marketplace add sangrokjung/claude-forge` + `/plugin install claude-forge` now work for Commands + Skills. [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) + [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) both pinned to `3.0.1`; CI enforces version drift via the new `marketplace-schema` job. Agents / Hooks / Rules / MCP / statusLine still require `./install.sh` — see [`docs/PLUGIN-VS-INSTALL-SH.md`](docs/PLUGIN-VS-INSTALL-SH.md). |
+| **Plugin Manifest shipped (partial)** | `/plugin marketplace add sangrokjung/claude-forge` + `/plugin install claude-forge` now work for Commands + Skills. [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) + [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) both pinned to `3.0.2`; CI enforces version drift via the new `marketplace-schema` job. Agents / Hooks / Rules / MCP / statusLine still require `./install.sh` — see [`docs/PLUGIN-VS-INSTALL-SH.md`](docs/PLUGIN-VS-INSTALL-SH.md). |
 | **Chrome DevTools promoted** | Lighthouse / Core Web Vitals / memory snapshots now arrive with the default 4-server MCP set. Pinned at `chrome-devtools-mcp@0.23.0` (supply-chain hardening). |
 | **`hooks/_lib/timing.sh`** | New wrapper records SessionEnd hook timing into `~/.claude/logs/hook-timing.jsonl` (mode 600) so the real parallelism of `async: true` hooks can be audited post-hoc. ~35 ms overhead. |
 | **CI trigger expanded** | [`.github/workflows/validate.yml`](.github/workflows/validate.yml) now runs on every PR and on `main`/`feat/**`/`fix/**`/`chore/**`/`docs/**`/`ci/**` pushes (previously `main` only). 6 jobs total. |
