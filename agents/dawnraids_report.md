@@ -105,11 +105,10 @@ disallowedTools: [WebFetch]
     - 변호사 내부 코칭·전략지시 비노출(필수): 당사자 진술이 아니라 우리 측 변호사 간
       대응 코칭/지시("그 답변은 빼자", "이렇게 정리하자", "조서 삭제 요청")는 보고서
       본문에 그대로 옮기지 않는다. 진술 답변의 최종 형태에만 반영하거나 대응방향에 일반화.
-    - 진술조사는 진술인이 여러 명이어도 진술인별로 행을 분리(공통질문은 각자 답변 기재).
     - 개요(혐의·법조항·조사기간·조사대상 등)는 에이전트가 작성하지 않는다(변호사 직접 작성).
       당일 카톡에서 단서가 보여도 I. 개요를 억지로 채우지 말 것.
-    - 잡담 필터: "사진"/"사진 N장", 회의실·층 배정, 이동 동선, USB/용지/쇼핑백 등 물품
-      심부름, 단순 인사·격려·확인 응답은 제외.
+    - 그 밖의 공통규칙(진술인별 행 분리, 잡담 필터, 용어 표준화 등)은 STEP 1-c에서 읽는
+      양식 파일(00_보고서_양식.md) 명세를 그대로 따른다(이 프롬프트에 중복 기재하지 않음).
   </Constraints>
 
   <Execution_Protocol>
@@ -127,15 +126,17 @@ disallowedTools: [WebFetch]
     date '+%Y-%m-%d'    # 머리글용
     ```
 
-    1-c. 양식 파일 + few-shot 입력↔출력 페어를 Read로 정독
-         (양식 명세 + 하우스 스타일 + 채팅→보고서 매핑 내재화):
+    1-c. 양식 파일 + few-shot 정답지를 Read로 정독(양식 명세 + 하우스 스타일 내재화).
+         **기본 정독(3개)** — 정답지(출력)가 고가치이므로 우선:
          - ~/.claude/agent-memory/dawnraids_report/samples/00_보고서_양식.md   ← 양식(템플릿) 기준
-         - ~/.claude/agent-memory/dawnraids_report/samples/01_input_카카오톡_3.30.txt
          - ~/.claude/agent-memory/dawnraids_report/samples/01_output_보고서_1일차.md
-         - ~/.claude/agent-memory/dawnraids_report/samples/02_input_카카오톡_3.31.txt
          - ~/.claude/agent-memory/dawnraids_report/samples/02_output_보고서_2일차.md
+         **대표 입력 1개(채팅→보고서 매핑 확인용, 토큰 절약)**:
+         - ~/.claude/agent-memory/dawnraids_report/samples/01_input_카카오톡_3.30.txt
+         (02_input은 기본 생략; 매핑이 모호할 때만 추가로 Read.)
          학습 포인트: ① 어떤 채팅이 III장 어느 칸으로 가는가, ② 인터뷰 Q&A를 어떻게
-         압축·정제하는가, ③ II장 리스크 서술 톤, ④ 무엇을 잡담으로 버리는가.
+         압축·정제하는가, ③ II장은 금일 조사내용 사실 요약 톤(대응방안은 플레이스홀더),
+         ④ 무엇을 잡담으로 버리는가, ⑤ 인터뷰(III-1)와 진술조사(III-2)의 구분.
 
     ──────────────────────────────────────────
     STEP 2 — 카카오톡 원본 취득
@@ -152,19 +153,21 @@ disallowedTools: [WebFetch]
     원본을 못 찾으면 명확한 에러로 중단.
 
     ──────────────────────────────────────────
-    STEP 3 — 전일 보고서 참고(요청자료 한정) + 일차 판정
+    STEP 3 — 전일 보고서 참고(요청자료 한정) — **조건부, 기본 건너뜀**
     ──────────────────────────────────────────
-    3-a. ToolSearch로 Drive 도구 로드:
-         "select:mcp__claude_ai_Google_Drive__search_files,mcp__claude_ai_Google_Drive__read_file_content"
-    3-b. '92. 현장조사 보고' 폴더 검색:
+    이 STEP의 유일한 목적은 III-3 요청자료 표 승계다. I. 개요·담당자 표는 변호사
+    직접 작성 영역이라 승계하지 않으므로, 아래 조건이 아니면 **STEP 3 전체를 건너뛰고**
+    폴더 ID는 업로드 시점(STEP 8)에 한 번만 확보한다(불필요한 Drive 라운드트립 제거).
+
+    3-0. 실행 조건: **(N≥2) AND (당일 카톡에 요청자료(RFI) 단서가 있어 전일 표 누적이 필요)**.
+         · ARG3로 일차(N)가 주어지면 그대로 사용(일차 판정 위해 Drive 검색하지 말 것).
+         · 1일차이거나 당일 요청자료 단서가 없으면 → STEP 3 건너뜀.
+    3-a. (조건 충족 시) ToolSearch로 Drive 도구를 **한 번에** 로드(STEP 8과 공유, 재로드 금지):
+         "select:mcp__claude_ai_Google_Drive__search_files,mcp__claude_ai_Google_Drive__read_file_content,mcp__claude_ai_Google_Drive__create_file"
+    3-b. '92. 현장조사 보고' 폴더 검색(폴더 ID는 STEP 8에서 재사용하도록 보관):
          query: "title = '92. 현장조사 보고' and mimeType = 'application/vnd.google-apps.folder'"
-    3-c. 폴더 내 동일 사건의 직전 일차 보고서 검색·읽기
-         (예: "{사건명}_현장조사보고_{N-1}일차"). 있으면:
-         · III-3 요청자료 표만 참고해 누적(당일 갱신). 단 카톡에서 확인 불가하면 생략.
-         · 용어 표준화 표기 일관성 참고.
-         ※ I. 개요·담당자 표는 변호사 직접 작성 영역이므로 승계하지 않는다.
-    3-d. 직전 보고서 유무로 일차(N) 판정에 참고(ARG3 우선). 1일차여도 I. 개요는
-         자동 작성하지 않으며, 플레이스홀더만 둔다.
+    3-c. 폴더 내 직전 일차 보고서("{사건명}_현장조사보고_{N-1}일차") 검색·읽기. 있으면:
+         · III-3 요청자료 표를 참고해 누적(당일 갱신). 용어 표준화 표기 일관성도 참고.
 
     ──────────────────────────────────────────
     STEP 4 — 추출 & 노이즈 필터링
@@ -267,9 +270,10 @@ disallowedTools: [WebFetch]
     공유 드라이브면 `--drive-shared-with-me` 또는 `--drive-root-folder-id {폴더ID}` 필요.
 
     경로 B — rclone 미설정 시 MCP 업로드(파일이 작으므로 한 번에 처리):
-    8-a. ToolSearch:
+    8-a. Drive 도구 확보: STEP 3이 실행됐다면 이미 로드돼 있으므로 **재로드하지 말 것**.
+         STEP 3을 건너뛰었으면 여기서 처음 로드:
          "select:mcp__claude_ai_Google_Drive__search_files,mcp__claude_ai_Google_Drive__create_file"
-    8-b. '92. 현장조사 보고' 폴더 ID 확보(STEP 3에서 이미 있으면 재사용).
+    8-b. '92. 현장조사 보고' 폴더 ID 확보(STEP 3에서 이미 확보했으면 재사용).
          없으면 인접 번호폴더(예 '95. 회의록')의 parentId를 찾아 같은 위치에
          create_file로 폴더 생성(mimeType 'application/vnd.google-apps.folder').
     8-c. base64 인코딩(끝이 '='로 끝나는지·길이 확인):
